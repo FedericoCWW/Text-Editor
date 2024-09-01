@@ -36,7 +36,7 @@ def abrirFile():
     file.close()
 
 root = Tk()
-root.tk.call('source', 'Forest-ttk-theme/forest-dark.tcl')
+root.tk.call('source', 'forest-dark.tcl')
 ttk.Style().theme_use('forest-dark')
 configs.Configs(root)
 
