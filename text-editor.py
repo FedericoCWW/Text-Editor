@@ -10,6 +10,7 @@ import configs
 
 class Editor_Texto:
     filename = None
+    font_list = ['Arial', 'Times New Roman', 'Impact', 'Georgia', 'Comfortaa']
     def __init__(self, root):
         self.root = root
     def nuevoFile():
@@ -56,7 +57,10 @@ class Editor_Texto:
                 matches += 1
                 start_pos = end_pos
                 text.tag_config('match', foreground='black', background='white')
-
+    
+    def CambiarFuente():
+        pass
+    
 if __name__ == "__main__":
     root = Tk()
     editor = Editor_Texto(root)
@@ -68,6 +72,7 @@ if __name__ == "__main__":
     scroll.pack(side=RIGHT, fill=Y)
 
     text = Text(root, width=400, height=400, yscrollcommand=scroll.set)
+    text.configure(font = 'Helvetica')
     text.pack()
     scroll.config(command=text.yview)
 
@@ -77,6 +82,7 @@ if __name__ == "__main__":
     filemenu = Menu(menubar, tearoff=False)
     menubar.add_cascade(label="Archivo", menu=filemenu)
     menubar.add_command(label="Buscar", command=Editor_Texto.BuscarPalabra)
+    menubar.add_command(label="Cambiar fuente", command=Editor_Texto.CambiarFuente)
     filemenu.add_command(label="Nuevo", command=Editor_Texto.nuevoFile)
     filemenu.add_command(label="Abrir", command=Editor_Texto.abrirFile)
     filemenu.add_command(label="Guardar", command=Editor_Texto.guardaFile)
